@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+
+    <title th:text="${title}">Document</title>
+</head>
+
+<body>
+        <ul>
+            <label for="name">Nombre Contacto:</label>
+            <input type="text" id="name" name="user_name" />
+       
+            <button type="submit">Ver item Ver 01</button>
+            <hr>
+       
+            <label for="mail">Nombre contacto</label>
+            <input type="text" id="name" name="user_name" />
+      
+            <label for="msg">Apellido contacto</label>
+            <input type="text" id="name" name="user_name" />
+
+       
+            <button type="submit">Ver item Ver 02</button>
+  
+        </ul>
+    <h1 th:text="${title}"></h1>
+    <div th:if="${users.isEmpty()}">No se encontro ningun registro....
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre de usuario</th>
+                <th>Apellidos de usuario</th>
+                <th>Correo electronico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user: ${users}">
+                <td th:text="${user.nombre}"></td>
+                <td th:text="${user.apellido}"></td>
+                <td th:text="${user.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
