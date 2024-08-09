@@ -1,17 +1,26 @@
 package com.j3appdemo.j3_app.models;
 
 public class User {
+    private String nombreContacto;
     private String nombre;
     private String apellido;
-    private String email;
-    
-    public User() {
-    }
 
-    public User(String nombre, String apellido, String email) {
+    // Constructor vacío
+    public User() {}
+
+    public User(String nombreContacto, String nombre, String apellido) {
+        this.nombreContacto = nombreContacto;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.email = email;
+    }
+
+    // Getters y setters
+    public String getNombreContacto() {
+        return nombreContacto;
+    }
+
+    public void setNombreContacto(String nombreContacto) {
+        this.nombreContacto = nombreContacto;
     }
 
     public String getNombre() {
@@ -29,17 +38,4 @@ public class User {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-  
-  
-   
-
 }

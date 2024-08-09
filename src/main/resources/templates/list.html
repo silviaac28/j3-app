@@ -1,52 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-
-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${title}">Document</title>
 </head>
-
 <body>
-        <ul>
-            <label for="name">Nombre Contacto:</label>
-            <input type="text" id="name" name="user_name" />
-       
-            <button type="submit">Ver item Ver 01</button>
-            <hr>
-       
-            <label for="mail">Nombre contacto</label>
-            <input type="text" id="name" name="user_name" />
-      
-            <label for="msg">Apellido contacto</label>
-            <input type="text" id="name" name="user_name" />
+    <div class="container">
+        <!-- Formulario para "Ver Item 01" -->
+        <form action="#" th:action="@{/viewItem01}" th:object="${user}" method="post">
+            <label for="nombreContacto">Nombre del Contacto:</label>
+            <input type="text" id="nombreContacto" th:field="*{nombreContacto}" />
+            <button type="submit">Ver Item 01</button>
+        </form>
 
-       
-            <button type="submit">Ver item Ver 02</button>
-  
-        </ul>
-    <h1 th:text="${title}"></h1>
-    <div th:if="${users.isEmpty()}">No se encontro ningun registro....
+        <!-- Formulario para "Ver Item 02" -->
+        <form action="#" th:action="@{/viewItem02}" th:object="${user}" method="post">
+            <label for="nombre">Nombre contacto:</label>
+            <input type="text" id="nombre" th:field="*{nombre}" />
+
+            <label for="apellido">Apellido contacto:</label>
+            <input type="text" id="apellido" th:field="*{apellido}" />
+            <button type="submit">Ver Item 02</button>
+        </form>
+
+        <!-- Sección para mostrar los datos -->
+        <h1 th:text="${title}"></h1>
+        <div id="viewData">
+            <div th:each="item : ${viewItems}">
+                <p th:text="${item}"></p>
+            </div>
+        </div>
     </div>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre de usuario</th>
-                <th>Apellidos de usuario</th>
-                <th>Correo electronico</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="user: ${users}">
-                <td th:text="${user.nombre}"></td>
-                <td th:text="${user.apellido}"></td>
-                <td th:text="${user.email}"></td>
-            </tr>
-        </tbody>
-    </table>
 </body>
-
 </html>
